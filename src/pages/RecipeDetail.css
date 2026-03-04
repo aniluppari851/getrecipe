@@ -259,3 +259,27 @@
         min-height: 300px;
     }
 }
+
+@media (max-width: 480px) {
+    .title-huge {
+        font-size: clamp(2rem, 5vw, 3rem);
+    }
+
+    .recipe-detail-hero {
+        height: 30vh;
+        min-height: 250px;
+    }
+
+    .main-card {
+        padding: 1.5rem 1rem;
+    }
+
+    .sidebar-card {
+        padding: 1.25rem 1rem;
+    }
+
+    .btn-video {
+        width: 100%;
+        justify-content: center;
+    }
+}
