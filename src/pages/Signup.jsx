@@ -22,6 +22,9 @@ const Signup = () => {
         const { data, error } = await supabase.auth.signUp({
             email,
             password,
+            options: {
+                emailRedirectTo: 'https://aniluppari851.github.io/getrecipe/',
+            }
         });
 
         if (error) {

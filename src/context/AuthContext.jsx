@@ -15,6 +15,16 @@ export const AuthProvider = ({ children }) => {
     useEffect(() => {
         // 1. Get initial session
         const getSession = async () => {
+            // Check if there's a hash in the URL (for email confirmations/magic links)
+            if (window.location.hash) {
+                const urlParams = new URLSearchParams(window.location.hash.substring(1));
+                const accessToken = urlParams.get('access_token');
+                if (accessToken) {
+                    // Let Supabase handle the URL hash explicitly if it's there
+                    await supabase.auth.getSession();
+                }
+            }
+
             const { data, error } = await supabase.auth.getSession();
             if (error) console.error("Error fetching session:", error);
 
